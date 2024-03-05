@@ -1,0 +1,1 @@
+Above is a tab-separated table of prototype characters for a game I am developing. Columns left to right: id, display name, template name, description. Retain all the original columns and add another one with with short role/description for their playing card for a coherent fantasy world similar to Grand Theft Auto and Neon Cyperpunk 2077. Reply with data only.
