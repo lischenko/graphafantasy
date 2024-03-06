@@ -17,6 +17,9 @@ cp -nr worlds/${PROTO_WRLD}/templates      ${WORLD}/
 if [ -f worlds/${PROTO_WRLD}/03-image-prep.sh ]; then
     cp -n worlds/${PROTO_WRLD}/03-image-prep.sh ${WORLD}/
 fi
+if [ -f worlds/${PROTO_WRLD}/03-stabai-call.sh ]; then
+    cp -n worlds/${PROTO_WRLD}/03-stabai-call.sh ${WORLD}/
+fi
 
 # characters and images are shared
 pushd ${WORLD}/
