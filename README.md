@@ -58,16 +58,26 @@ Often times you want to regenerate a single character only, use the `--target CH
 # Advanced Configuration
 
 ## Customize stability.ai step
-There are some supported hacks to adjust image generation per world. If found under the world directory, the following scripts will override the default flow:
-- `03-image-prep.sh`. By default, the input image to img2img is formed by resizing the source to a max of 832x1216 and filling the rest with noise. This script provides an opportunity to do something else. For a Dune themed world I colorized the reference images to help img2img move in the right direction:
+You can adjust image generation per world. The following scripts are copied into world directories and may be tweaked:
+- `03-image-prep.sh`. The default implementation prepares input to img2img by resizing the source to a max of 832x1216 and filling the rest with noise. For a Dune themed world you may want to colorize the reference images to help img2img move in the right direction:
 ```
+#!/bin/bash
+set -o nounset
+set -o errexit
+
+SRC_IMAGE="$1"
+DST_IMAGE="$2"
+
+echo "Custom image preparation script"
+convert -size 832x1216 xc: +noise Random /tmp/noise_background.jpg
+convert ${SRC_IMAGE} -resize 832x1216 /tmp/input_resized.jpg
 convert /tmp/noise_background.jpg /tmp/input_resized.jpg -gravity center -composite \
     \( +clone -fill '#DAA520' -colorize 90% \) \
     -compose overlay -composite \
-    $1
+    "${DST_IMAGE}"
 ```
 
-- `03-stabai-call.sh` replaces the call to stability API. This is an opportunity to adjust style, image strength etc. Brittle as it relies on very specific positional parameters passed into it. Sample script:
+- `03-stabai-call.sh` implements the call to stability API. This is an opportunity to adjust style, image strength etc. Currently relies on very specific positional parameters passed into it. Sample script:
 ```
 #!/bin/bash
 set -o nounset

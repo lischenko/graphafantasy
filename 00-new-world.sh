@@ -5,24 +5,13 @@ set -o errexit
 WORLD=worlds/$1
 mkdir -p ${WORLD}
 
-PROTO_WRLD=sample
+PROTO_WRLD=worlds/sample
 
-
-cp -n worlds/${PROTO_WRLD}/prompt-01-enrich-table.txt        ${WORLD}/
-cp -n worlds/${PROTO_WRLD}/prompt-02-describe-ref-images.txt ${WORLD}/
-cp -n worlds/${PROTO_WRLD}/prompt-03-char-stability.txt      ${WORLD}/
-
-cp -nr worlds/${PROTO_WRLD}/templates      ${WORLD}/
-
-if [ -f worlds/${PROTO_WRLD}/03-image-prep.sh ]; then
-    cp -n worlds/${PROTO_WRLD}/03-image-prep.sh ${WORLD}/
-fi
-if [ -f worlds/${PROTO_WRLD}/03-stabai-call.sh ]; then
-    cp -n worlds/${PROTO_WRLD}/03-stabai-call.sh ${WORLD}/
-fi
-
-# characters and images are shared
-pushd ${WORLD}/
-ln -s ../${PROTO_WRLD}/00-ref_img 00-ref_img
-ln -s ../${PROTO_WRLD}/characters.tsv characters.tsv
-popd
+cp -nr ${PROTO_WRLD}/00-ref_img                        ${WORLD}/
+cp -n  ${PROTO_WRLD}/characters.tsv                    ${WORLD}/
+cp -n  ${PROTO_WRLD}/prompt-01-enrich-table.txt        ${WORLD}/
+cp -n  ${PROTO_WRLD}/prompt-02-describe-ref-images.txt ${WORLD}/
+cp -n  ${PROTO_WRLD}/prompt-03-char-stability.txt      ${WORLD}/
+cp -n  ${PROTO_WRLD}/03-image-prep.sh                  ${WORLD}/
+cp -n  ${PROTO_WRLD}/03-stabai-call.sh                 ${WORLD}/
+cp -nr ${PROTO_WRLD}/templates                         ${WORLD}/
