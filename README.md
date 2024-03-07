@@ -2,6 +2,8 @@
 
 *(Name courtesy of a friend who saw an early prototype)*
 
+![](/doc/worth-a-1000.png)
+
 This weekend project is an excuse to play with generative AI.
 
 Inspired by my son's play with his toy characters, I created a set of quick and dirty scripts to turn arbitrary photos (of toys or people) into a set of playing cards in a specific style, presumably for a board game with unspecified rules 🙄
@@ -39,8 +41,7 @@ The character, known as the Enforcer of Chaos, manifests a neon-orange cyberpunk
 
 This enforcer is clad in armor that resembles its spine-covered visage—a fusion of high-tech and primal rage. The chaotic neon landscape of this anarchic enforcer's world looms in the background, where flickering lights and holographic graffiti paint the scene of urban bedlam, mirroring its love for tumult and mayhem.
 ```
-9. Use stability.ai Stable Diffusion img2img API to generate new character images from the mix of the reference ones and the descriptions: `./03-char-stability.sh --world myworld`. Inspect `worlds/myworld/03-stability/`:
-![sample grumplespike image](/worlds/sample/03-stability/1-1709651725)
+9. Use stability.ai Stable Diffusion img2img API to generate new character images from the mix of the reference ones and the descriptions: `./03-char-stability.sh --world myworld`. Inspect `worlds/myworld/03-stability/`
 10. Combine images and descriptions into cards: `./04-fill-templates.sh --world myworld`, inspect `worlds/myworld/04-cards/`
 
 Various afterthoughts:
