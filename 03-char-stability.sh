@@ -11,7 +11,7 @@ do
     continue
   fi
 
-  IMAGE_DESC_FILE=$(find ${DESC_IMG_PATH} -type f -name ${CHAR_ID}'*'txt|sort|tail -1)
+  IMAGE_DESC_FILE=$(find ${DESC_IMG_PATH} -type f -name ${CHAR_ID}'-[0-9]*\.txt'|sort|tail -1)
   IMAGE_DESC=$(cat "${IMAGE_DESC_FILE}")
 
   IMAGE_PATH="${REF_IMG_PATH}/${CHAR_ID}.jpg"

@@ -13,7 +13,7 @@ do
 	continue
     fi
 
-    JSON_FILE=$(find ${VIDEO_PATH}/ -type f -name ${CHAR_ID}'*.json'|sort|tail -1)
+    JSON_FILE=$(find ${VIDEO_PATH}/ -type f -name ${CHAR_ID}'-[0-9]*\.json'|sort|tail -1)
 
     GENERATION_ID=$(jq -r '.id' ${JSON_FILE})
 

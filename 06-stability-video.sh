@@ -11,8 +11,7 @@ do
     continue
   fi
 
-  IMAGE_FILE=$(find ${STAB_IMG_PATH} -type f -name ${CHAR_ID}'*'|sort|tail -1)
-
+  IMAGE_FILE=$(find ${STAB_IMG_PATH} -type f -name ${CHAR_ID}'-[0-9]*\.jpg'|sort|tail -1)
   RESIZED_IMAGE="/tmp/stab-vid-input.jpg"
   # cut excess
   convert ${IMAGE_FILE} -resize 576x1024^ -gravity center -extent 576x1024 ${RESIZED_IMAGE}

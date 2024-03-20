@@ -16,7 +16,7 @@ do
   TEMPLATES_PATH="worlds/${WORLD}/templates"
   TEMPLATE_FILE="${TEMPLATES_PATH}/${CHAR_TEMPLATE}.svg"
 
-  IMAGE_STAB_FILE=$(find ${STAB_IMG_PATH} -type f -name ${CHAR_ID}'*'|sort|tail -1)
+  IMAGE_STAB_FILE=$(find ${STAB_IMG_PATH} -type f -name ${CHAR_ID}'-[0-9]*\.jpg'|sort|tail -1)
 
   IMAGE_BASE="${CARDS_PATH}/${CHAR_ID}"
 
